@@ -18,14 +18,220 @@
 
 ## 📖 目录
 
+- [13 种主题风格预览](#-13-种主题风格预览) ⭐ **快速看图选风格**
 - [功能特性](#-功能特性)
 - [快速开始](#-快速开始)
 - [使用示例](#-使用示例)
-- [13 种主题风格](#-13-种主题风格)
 - [核心生成框架](#-核心生成框架)
 - [项目结构](#-项目结构)
 - [常见问题](#-常见问题)
-- [许可证](#-许可证)
+
+---
+
+## 🎨 13 种主题风格预览
+
+<div align="center">
+
+**👇 直接看图选风格！点击风格名称查看详细指南**
+
+</div>
+
+### 1️⃣ 孟菲斯风格 `memphis` ⭐ 推荐
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![孟菲斯封面](examples/memphis-cover.png) | ![孟菲斯卡片 1](examples/memphis-card1.png) | ![孟菲斯卡片 2](examples/memphis-card2.png) |
+
+**适用场景**：好物推荐/种草 · 美妆穿搭 · 生活方式
+
+</div>
+
+---
+
+### 2️⃣ 酸性设计风格 `acid`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![酸性设计封面](examples/acid-cover.png) | ![酸性设计卡片 1](examples/acid-card1.png) | ![酸性设计卡片 2](examples/acid-card2.png) |
+
+**适用场景**：技术编程/数码 · 潮流穿搭 · Z 世代内容
+
+</div>
+
+---
+
+### 3️⃣ 蒸汽波风格 `vaporwave`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![蒸汽波封面](examples/vaporwave-cover.png) | ![蒸汽波卡片 1](examples/vaporwave-card1.png) | ![蒸汽波卡片 2](examples/vaporwave-card2.png) |
+
+**适用场景**：生活美食/旅行 · 复古穿搭 · 治愈系内容
+
+</div>
+
+---
+
+### 4️⃣ 极简主义风格 `minimalist`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![极简主义封面](examples/minimalist-cover.png) | ![极简主义卡片 1](examples/minimalist-card1.png) | ![极简主义卡片 2](examples/minimalist-card2.png) |
+
+**适用场景**：知识干货/职场 · 商务专业 · 高端内容
+
+</div>
+
+---
+
+### 5️⃣ 故障艺术风格 `glitch`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![故障艺术封面](examples/glitch-cover.png) | ![故障艺术卡片 1](examples/glitch-card1.png) | ![故障艺术卡片 2](examples/glitch-card2.png) |
+
+**适用场景**：科技/游戏/数码 · 赛博朋克 · 未来感主题
+
+</div>
+
+---
+
+### 6️⃣ 中国风风格 `chinese`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![中国风封面](examples/chinese-cover.png) | ![中国风卡片 1](examples/chinese-card1.png) | ![中国风卡片 2](examples/chinese-card2.png) |
+
+**适用场景**：传统文化/国风 · 茶道花道 · 历史故事
+
+</div>
+
+---
+
+### 7️⃣ 毛玻璃风格 `glassmorphism`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![毛玻璃封面](examples/glassmorphism-cover.png) | ![毛玻璃卡片 1](examples/glassmorphism-card1.png) | ![毛玻璃卡片 2](examples/glassmorphism-card2.png) |
+
+**适用场景**：美妆护肤/穿搭 · 轻奢生活 · 女性向内容
+
+</div>
+
+---
+
+### 8️⃣ 包豪斯风格 `bauhaus`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![包豪斯封面](examples/bauhaus-cover.png) | ![包豪斯卡片 1](examples/bauhaus-card1.png) | ![包豪斯卡片 2](examples/bauhaus-card2.png) |
+
+**适用场景**：设计/建筑/艺术 · 美学教育 · 创意作品
+
+</div>
+
+---
+
+### 9️⃣ 波普艺术风格 `pop-art`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![波普艺术封面](examples/pop-art-cover.png) | ![波普艺术卡片 1](examples/pop-art-card1.png) | ![波普艺术卡片 2](examples/pop-art-card2.png) |
+
+**适用场景**：时尚/潮流 · 艺术展览 · 流行文化
+
+</div>
+
+---
+
+### 🔟 新艺术运动风格 `art-nouveau`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![新艺术运动封面](examples/art-nouveau-cover.png) | ![新艺术运动卡片 1](examples/art-nouveau-card1.png) | ![新艺术运动卡片 2](examples/art-nouveau-card2.png) |
+
+**适用场景**：艺术/花卉/手作 · 优雅生活 · 自然元素
+
+</div>
+
+---
+
+### 1️⃣1️⃣ 拼贴艺术风格 `collage`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![拼贴艺术封面](examples/collage-cover.png) | ![拼贴艺术卡片 1](examples/collage-card1.png) | ![拼贴艺术卡片 2](examples/collage-card2.png) |
+
+**适用场景**：创意/手作/旅行 · 混合媒介 · 生活记录
+
+</div>
+
+---
+
+### 1️⃣2️⃣ 新丑风格 `new-ugly`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![新丑风格封面](examples/new-ugly-cover.png) | ![新丑风格卡片 1](examples/new-ugly-card1.png) | ![新丑风格卡片 2](examples/new-ugly-card2.png) |
+
+**适用场景**：个性表达/实验艺术 · 前卫设计 · 亚文化
+
+</div>
+
+---
+
+### 1️⃣3️⃣ 粗野主义风格 `brutalism`
+
+<div align="center">
+
+| 封面 | 卡片 1 | 卡片 2 |
+|:---:|:---:|:---:|
+| ![粗野主义封面](examples/brutalism-cover.png) | ![粗野主义卡片 1](examples/brutalism-card1.png) | ![粗野主义卡片 2](examples/brutalism-card2.png) |
+
+**适用场景**：极简/工业风 · 建筑设计 · 男性向内容
+
+</div>
+
+---
+
+### 🎯 快速选择指南
+
+| 内容类型 | 推荐风格（按优先级） |
+|----------|---------------------|
+| **📦 好物推荐/种草** | `memphis` → `pop-art` → `glassmorphism` |
+| **💄 美妆穿搭/护肤** | `glassmorphism` → `vaporwave` → `art-nouveau` |
+| **🍳 生活美食/旅行** | `vaporwave` → `chinese` → `collage` |
+| **💼 知识干货/职场** | `minimalist` → `bauhaus` |
+| **💻 技术编程/数码** | `acid` → `glitch` → `minimalist` |
+| **🎨 设计/建筑/艺术** | `bauhaus` → `art-nouveau` → `brutalism` |
+| **🏮 传统文化/国风** | `chinese` → `art-nouveau` |
+| **🎭 个性表达/实验** | `new-ugly` → `brutalism` → `glitch` |
+
+**不确定选啥？** → 用 `memphis`（孟菲斯），最安全最吸睛！
 
 ---
 
@@ -251,34 +457,6 @@ output/
 
 ---
 
-## 🎨 13 种主题风格
-
-| 风格 | 代码 | 适用场景 | 视觉特点 |
-|------|------|----------|----------|
-| **孟菲斯** | `memphis` | 好物推荐/种草 | 鲜艳几何图形 + 粗边框 |
-| **酸性设计** | `acid` | 技术编程/潮流 | 金属质感 + 霓虹色彩 |
-| **蒸汽波** | `vaporwave` | 生活美食/复古 | 粉紫渐变 + 复古元素 |
-| **极简主义** | `minimalist` | 知识干货/商务 | 大量留白 + 黑白灰 |
-| **故障艺术** | `glitch` | 科技/赛博朋克 | 像素错位 + 色彩分离 |
-| **中国风** | `chinese` | 传统文化/国风 | 水墨元素 + 传统纹样 |
-| **毛玻璃** | `glassmorphism` | 美妆穿搭/轻奢 | 磨砂玻璃 + 渐变背景 |
-| **包豪斯** | `bauhaus` | 设计/建筑/艺术 | 几何构成 + 原色 |
-| **波普艺术** | `pop-art` | 时尚/潮流 | 高饱和色块 + 重复图案 |
-| **新艺术运动** | `art-nouveau` | 艺术/花卉 | 曲线装饰 + 自然元素 |
-| **拼贴艺术** | `collage` | 创意/手作 | 多层叠加 + 混合材质 |
-| **新丑风格** | `new-ugly` | 个性表达/实验 | 反常规排版 + 冲突色彩 |
-| **粗野主义** | `brutalism` | 极简/工业风 | 原始质感 + 粗犷线条 |
-
-### 一键测试所有风格
-
-```bash
-for theme in memphis acid vaporwave minimalist glitch chinese glassmorphism bauhaus pop-art art-nouveau collage new-ugly brutalism; do
-  python3 scripts/render_xhs.py examples/tool-recommendation.md -t $theme -o "./output/$theme"
-done
-```
-
----
-
 ## 🎯 核心生成框架
 
 ### 标题公式
@@ -356,28 +534,6 @@ xiaohongshu-master/
 
 ---
 
-## 📋 违禁词检测规则
-
-### 1️⃣ 绝对化用语
-| 禁用词 | 替代方案 |
-|--------|----------|
-| 最/第一/国家级 | 「个人觉得」「实测感受」 |
-| 全网首发/顶级/史上 | 「累计热销超 X 万」 |
-
-### 2️⃣ 虚假宣传
-| 类型 | 禁用词 | 替代方案 |
-|------|--------|----------|
-| **医疗宣称** | 根治/疗效/修复细胞/治疗 | 「实验室实测」「用户反馈」 |
-| **效果保证** | 7 天白 2 度/月瘦 20 斤/100% 有效 | 「28 天可见改善」「多数人反馈」 |
-| **资质缺失** | 医院同款/医生推荐 | 「专业机构检测」「配方师推荐」 |
-
-### 3️⃣ 敏感内容
-- **价值观导向**：body shame/崇洋媚外
-- **高危领域**：金融/医疗/封建迷信
-- **引流信息**：微信号/二维码/外链
-
----
-
 ## ❓ 常见问题
 
 ### Q: 生成的文案能直接发布吗？
@@ -389,14 +545,19 @@ xiaohongshu-master/
 ### Q: 违禁词库多久更新一次？
 **A:** 建议每月更新一次，关注平台最新监管规则。
 
-### Q: 支持批量生成吗？
-**A:** 当前版本支持单次生成，批量生成功能在开发中。
-
 ### Q: 渲染图片需要联网吗？
 **A:** 需要。Playwright 会从 Google Fonts 加载字体，请确保网络通畅。
 
 ### Q: 如何选择合适的风格？
-**A:** 参考 [13 种主题风格](#-13-种主题风格) 表格中的"适用场景"列，或查看 `docs/theme-guide.md` 获取详细指南。
+**A:** 参考上面的 **13 种主题风格预览** 表格，或查看 `docs/theme-guide.md` 获取详细指南。
+
+### Q: 一键测试所有风格？
+**A:** 使用以下命令：
+```bash
+for theme in memphis acid vaporwave minimalist glitch chinese glassmorphism bauhaus pop-art art-nouveau collage new-ugly brutalism; do
+  python3 scripts/render_xhs.py examples/tool-recommendation.md -t $theme -o "./output/$theme"
+done
+```
 
 ---
 
