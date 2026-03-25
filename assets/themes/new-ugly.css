@@ -1,0 +1,222 @@
+/* ========== 新丑风格 (New Ugly) ========== */
+/* 故意"丑"的设计 + 高对比度撞色 + 反传统排版 */
+
+:root {
+  --ugly-green: #00ff00;
+  --ugly-pink: #ff00ff;
+  --ugly-yellow: #ffff00;
+  --ugly-blue: #0000ff;
+  --ugly-red: #ff0000;
+  --ugly-black: #000000;
+  --ugly-white: #ffffff;
+}
+
+.new-ugly-container {
+  background: var(--ugly-green);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 冲突色块 */
+.new-ugly-container::before {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background: var(--ugly-pink);
+  top: 0;
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 80%);
+}
+
+.new-ugly-container::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background: var(--ugly-yellow);
+  bottom: 10%;
+  left: 5%;
+  border: 15px solid var(--ugly-black);
+}
+
+/* 内容卡片 */
+.new-ugly-inner {
+  position: absolute;
+  width: 920px;
+  height: 1320px;
+  left: 80px;
+  top: 60px;
+  background: var(--ugly-white);
+  border: 20px solid var(--ugly-black);
+  padding: 50px;
+  box-shadow: 
+    25px 25px 0 var(--ugly-blue),
+    inset 0 0 0 10px var(--ugly-red);
+  transform: rotate(-2deg);
+}
+
+/* 标题 - 故意不协调 */
+.new-ugly-title {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--ugly-red);
+  background: var(--ugly-yellow);
+  padding: 20px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+  word-break: break-all;
+  border: 8px solid var(--ugly-black);
+  transform: rotate(-3deg);
+}
+
+/* 副标题 */
+.new-ugly-subtitle {
+  font-size: 50px;
+  color: var(--ugly-blue);
+  font-weight: 900;
+  margin-top: auto;
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+  text-decoration-color: var(--ugly-pink);
+}
+
+/* 内容区域 */
+.new-ugly-content {
+  color: var(--ugly-black);
+  font-size: 42px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+/* 列表 - 混乱标记 */
+.new-ugly-content ul,
+.new-ugly-content ol {
+  padding-left: 50px;
+}
+
+.new-ugly-content li {
+  margin-bottom: 25px;
+}
+
+.new-ugly-content ul > li::marker {
+  color: var(--ugly-pink);
+  font-size: 50px;
+  content: '⚡';
+}
+
+/* 引用块 - 刺眼背景 */
+.new-ugly-content blockquote {
+  background: var(--ugly-green);
+  border: 10px solid var(--ugly-black);
+  padding: 30px;
+  margin: 40px 0;
+  color: var(--ugly-black);
+  font-style: italic;
+  font-weight: 900;
+  box-shadow: 15px 15px 0 var(--ugly-pink);
+}
+
+/* 代码块 */
+.new-ugly-content pre {
+  background: var(--ugly-blue);
+  color: var(--ugly-yellow);
+  border: 12px solid var(--ugly-pink);
+  padding: 30px;
+  margin: 40px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 32px;
+  box-shadow: 10px 10px 0 var(--ugly-black);
+}
+
+.new-ugly-content code {
+  background: var(--ugly-red);
+  color: var(--ugly-white);
+  padding: 8px 15px;
+  font-family: 'Courier New', monospace;
+  border: 4px solid var(--ugly-black);
+}
+
+/* 表格 - 冲突色 */
+.new-ugly-content table {
+  border: 15px solid var(--ugly-black);
+  margin: 40px 0;
+}
+
+.new-ugly-content th {
+  background: var(--ugly-pink);
+  color: var(--ugly-black);
+  font-weight: 900;
+  padding: 20px 25px;
+  text-align: left;
+  border: 6px solid var(--ugly-black);
+  text-transform: uppercase;
+}
+
+.new-ugly-content td {
+  padding: 20px 25px;
+  border: 6px solid var(--ugly-black);
+  background: var(--ugly-yellow);
+  font-weight: 700;
+}
+
+.new-ugly-content tr:nth-child(even) td {
+  background: var(--ugly-green);
+}
+
+/* 分割线 - 锯齿状 */
+.new-ugly-content hr {
+  border: none;
+  height: 10px;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      var(--ugly-red) 0px,
+      var(--ugly-red) 30px,
+      var(--ugly-black) 30px,
+      var(--ugly-black) 35px,
+      var(--ugly-yellow) 35px,
+      var(--ugly-yellow) 65px
+    );
+  margin: 50px 0;
+  border: 5px solid var(--ugly-black);
+}
+
+/* 页码 */
+.new-ugly-page-number {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 40px;
+  color: var(--ugly-black);
+  background: var(--ugly-green);
+  padding: 15px 35px;
+  font-weight: 900;
+  border: 8px solid var(--ugly-pink);
+  transform: rotate(5deg);
+}
+
+/* 强调文本 */
+.new-ugly-content strong {
+  font-weight: 900;
+  color: var(--ugly-white);
+  background: var(--ugly-black);
+  padding: 5px 10px;
+}
+
+.new-ugly-content em {
+  font-style: italic;
+  color: var(--ugly-pink);
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+/* 装饰元素 - 故意不协调 */
+.new-ugly-sticker {
+  position: absolute;
+  font-size: 100px;
+  top: 30px;
+  right: 30px;
+  transform: rotate(15deg);
+}

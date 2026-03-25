@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1440">
+    <title>小红书封面</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+        
+        @font-face {
+            font-family: 'Noto Color Emoji';
+            src: local('Noto Color Emoji'),
+                 url('https://fonts.gstatic.com/s/notocoloremoji/v28/Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabsE4tq3luCC7p-aXxcn.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            width: 1080px;
+            height: 1440px;
+            overflow: hidden;
+        }
+        
+        .emoji {
+            font-family: 'Noto Color Emoji', sans-serif;
+            font-size: 200px;
+            line-height: 1;
+            display: inline-block;
+        }
+        
+        /* ========== 孟菲斯风格 ========== */
+        .memphis-container {
+            width: 1080px;
+            height: 1440px;
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B6B 50%, #4D96FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .memphis-inner {
+            position: absolute;
+            width: 900px;
+            height: 1280px;
+            left: 90px;
+            top: 80px;
+            background: #FFFFFF;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 75px;
+            border: 10px solid #000;
+            box-shadow: 20px 20px 0 #000;
+        }
+        
+        .memphis-emoji {
+            font-size: 200px;
+            line-height: 1;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .memphis-title {
+            font-weight: 900;
+            font-size: 120px;
+            line-height: 1.3;
+            color: #000;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+            text-shadow: 4px 4px 0 #FFD93D;
+        }
+        
+        .memphis-subtitle {
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 1.4;
+            color: #fff;
+            background: linear-gradient(90deg, #FF6B6B 0%, #4D96FF 100%);
+            padding: 30px 50px;
+            border-radius: 20px;
+            border: 6px solid #000;
+            text-align: center;
+            margin-top: auto;
+            box-shadow: 8px 8px 0 #000;
+        }
+        
+        /* ========== 酸性风格 ========== */
+        .acid-container {
+            width: 1080px;
+            height: 1440px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0524 50%, #051a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .acid-inner {
+            position: absolute;
+            width: 900px;
+            height: 1280px;
+            left: 90px;
+            top: 80px;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(40, 10, 40, 0.9) 100%);
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 75px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.2), inset 0 0 60px rgba(0, 255, 255, 0.1);
+        }
+        
+        .acid-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.5));
+        }
+        
+        .acid-title {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .acid-subtitle {
+            font-size: 64px;
+            color: #e5e5e5;
+            background: linear-gradient(180deg, #ffffff 0%, #888888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 蒸汽波风格 ========== */
+        .vaporwave-container {
+            width: 1080px;
+            height: 1440px;
+            background: linear-gradient(180deg, #2c003e 0%, #512b58 50%, #ff71ce 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vaporwave-inner {
+            position: absolute;
+            width: 900px;
+            height: 1280px;
+            left: 90px;
+            top: 80px;
+            background: linear-gradient(135deg, rgba(166, 133, 226, 0.8) 0%, rgba(255, 113, 206, 0.8) 100%);
+            border: 3px solid #ff71ce;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 75px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 60px rgba(255, 113, 206, 0.5);
+        }
+        
+        .vaporwave-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+            filter: drop-shadow(0 0 20px #ff71ce);
+        }
+        
+        .vaporwave-title {
+            font-size: 120px;
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 10px #ff71ce, 0 0 20px #ff71ce, 0 0 40px #ff71ce;
+            margin-bottom: 50px;
+        }
+        
+        .vaporwave-subtitle {
+            font-size: 64px;
+            background: linear-gradient(90deg, #05d9e8, #ff71ce, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 极简主义 ========== */
+        .minimalist-container {
+            width: 1080px;
+            height: 1440px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .minimalist-inner {
+            position: absolute;
+            width: 850px;
+            height: 1300px;
+            left: 115px;
+            top: 70px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 90px;
+        }
+        
+        .minimalist-emoji {
+            font-size: 180px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .minimalist-title {
+            font-size: 64px;
+            font-weight: 400;
+            color: #000;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .minimalist-subtitle {
+            font-size: 42px;
+            font-weight: 300;
+            color: #999;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 故障艺术 ========== */
+        .glitch-container {
+            width: 1080px;
+            height: 1440px;
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glitch-inner {
+            position: absolute;
+            width: 900px;
+            height: 1280px;
+            left: 90px;
+            top: 70px;
+            background: #111;
+            border: 3px solid #00f0ff;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 75px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+        
+        .glitch-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+            filter: drop-shadow(0 0 20px #00f0ff);
+        }
+        
+        .glitch-title {
+            font-size: 120px;
+            font-weight: 900;
+            color: #f0f0f0;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 0 #ff003c, -2px 0 #00f0ff;
+            margin-bottom: 50px;
+        }
+        
+        .glitch-subtitle {
+            font-size: 64px;
+            color: #00f0ff;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 中国风 ========== */
+        .chinese-container {
+            width: 1080px;
+            height: 1440px;
+            background: #f5f1e8;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chinese-inner {
+            position: absolute;
+            width: 880px;
+            height: 1280px;
+            left: 100px;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            padding: 70px 80px;
+        }
+        
+        .chinese-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .chinese-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: #c41e3a;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'STKaiti', 'KaiTi', '楷体', serif;
+            margin-bottom: 50px;
+        }
+        
+        .chinese-subtitle {
+            font-size: 48px;
+            color: #2b2b2b;
+            text-align: center;
+            font-family: 'STSong', 'SimSun', '宋体', serif;
+            margin-top: auto;
+        }
+        
+        /* ========== 毛玻璃 ========== */
+        .glassmorphism-container {
+            width: 1080px;
+            height: 1440px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glassmorphism-inner {
+            position: absolute;
+            width: 900px;
+            height: 1300px;
+            left: 90px;
+            top: 70px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            padding: 65px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glassmorphism-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .glassmorphism-title {
+            font-size: 68px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glassmorphism-subtitle {
+            font-size: 46px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 包豪斯 ========== */
+        .bauhaus-container {
+            width: 1080px;
+            height: 1440px;
+            background: #f1faee;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bauhaus-inner {
+            position: absolute;
+            width: 880px;
+            height: 1300px;
+            left: 100px;
+            top: 70px;
+            background: #f1faee;
+            border: 8px solid #1d1d1d;
+            display: flex;
+            flex-direction: column;
+            padding: 65px;
+        }
+        
+        .bauhaus-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .bauhaus-title {
+            font-size: 68px;
+            font-weight: 700;
+            color: #1d1d1d;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .bauhaus-subtitle {
+            font-size: 46px;
+            color: #6c757d;
+            font-weight: 500;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        /* ========== 波普艺术 ========== */
+        .pop-art-container {
+            width: 1080px;
+            height: 1440px;
+            background: #fffbf0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pop-art-inner {
+            position: absolute;
+            width: 900px;
+            height: 1300px;
+            left: 90px;
+            top: 70px;
+            background: #fff;
+            border: 12px solid #000;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            box-shadow: 15px 15px 0 #000, inset 0 0 0 6px #ffbe0b;
+        }
+        
+        .pop-art-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .pop-art-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: #ff006e;
+            background: #ffbe0b;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            border: 8px solid #000;
+        }
+        
+        .pop-art-subtitle {
+            font-size: 48px;
+            color: #8338ec;
+            font-weight: 700;
+            text-align: center;
+            margin-top: auto;
+            text-shadow: 3px 3px 0 #000;
+        }
+        
+        /* ========== 新艺术运动 ========== */
+        .art-nouveau-container {
+            width: 1080px;
+            height: 1440px;
+            background: #f9f5f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .art-nouveau-inner {
+            position: absolute;
+            width: 880px;
+            height: 1300px;
+            left: 100px;
+            top: 80px;
+            background: #fff;
+            border: 8px solid #c9a962;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            padding: 65px 75px;
+            box-shadow: 0 10px 40px rgba(43, 43, 43, 0.15);
+        }
+        
+        .art-nouveau-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .art-nouveau-title {
+            font-size: 68px;
+            font-weight: 400;
+            color: #2b2b2b;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+        
+        .art-nouveau-subtitle {
+            font-size: 46px;
+            color: #5c4033;
+            font-style: italic;
+            text-align: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin-top: auto;
+        }
+        
+        /* ========== 拼贴艺术 ========== */
+        .collage-container {
+            width: 1080px;
+            height: 1440px;
+            background: #f4e9d8;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .collage-inner {
+            position: absolute;
+            width: 890px;
+            height: 1300px;
+            left: 95px;
+            top: 70px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 70px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transform: rotate(-1deg);
+        }
+        
+        .collage-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .collage-title {
+            font-size: 68px;
+            font-weight: 900;
+            color: #2b2b2b;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            font-family: 'American Typewriter', 'Courier New', serif;
+        }
+        
+        .collage-subtitle {
+            font-size: 46px;
+            color: #8b6f47;
+            font-style: italic;
+            text-align: center;
+            margin-top: auto;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* ========== 新丑风格 ========== */
+        .new-ugly-container {
+            width: 1080px;
+            height: 1440px;
+            background: #00ff00;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .new-ugly-inner {
+            position: absolute;
+            width: 920px;
+            height: 1320px;
+            left: 80px;
+            top: 60px;
+            background: #fff;
+            border: 20px solid #000;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            box-shadow: 25px 25px 0 #0000ff, inset 0 0 0 10px #ff0000;
+            transform: rotate(-2deg);
+        }
+        
+        .new-ugly-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .new-ugly-title {
+            font-size: 80px;
+            font-weight: 900;
+            color: #ff0000;
+            background: #ffff00;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            border: 8px solid #000;
+        }
+        
+        .new-ugly-subtitle {
+            font-size: 50px;
+            color: #0000ff;
+            font-weight: 900;
+            text-align: center;
+            margin-top: auto;
+            text-decoration: underline;
+            text-decoration-thickness: 5px;
+            text-decoration-color: #ff00ff;
+        }
+        
+        /* ========== 粗野主义 ========== */
+        .brutalism-container {
+            width: 1080px;
+            height: 1440px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brutalism-inner {
+            position: absolute;
+            width: 900px;
+            height: 1300px;
+            left: 90px;
+            top: 70px;
+            background: #fff;
+            border: 15px solid #000;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            box-shadow: 25px 25px 0 #000;
+        }
+        
+        .brutalism-emoji {
+            font-size: 200px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .brutalism-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: #000;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .brutalism-subtitle {
+            font-size: 48px;
+            color: #808080;
+            font-weight: 700;
+            text-align: center;
+            margin-top: auto;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="{{THEME}}-container">
+        <div class="{{THEME}}-inner">
+            <div class="{{THEME}}-emoji"><span class="emoji">{{EMOJI}}</span></div>
+            <div class="{{THEME}}-title">{{TITLE}}</div>
+            <div class="{{THEME}}-subtitle">{{SUBTITLE}}</div>
+        </div>
+    </div>
+</body>
+</html>

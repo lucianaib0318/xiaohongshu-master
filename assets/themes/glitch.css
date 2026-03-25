@@ -1,0 +1,203 @@
+/* ========== 故障艺术风格 (Glitch Art) ========== */
+/* RGB 分离 + 像素扭曲 + 赛博朋克 */
+
+:root {
+  --glitch-bg: #0a0a0a;
+  --glitch-red: #ff003c;
+  --glitch-cyan: #00f0ff;
+  --glitch-green: #00ff41;
+  --glitch-white: #f0f0f0;
+}
+
+.glitch-container {
+  background: var(--glitch-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 扫描线效果 */
+.glitch-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 240, 255, 0.03) 2px,
+    rgba(0, 240, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* 内容卡片 */
+.glitch-inner {
+  position: absolute;
+  width: 900px;
+  height: 1300px;
+  left: 90px;
+  top: 70px;
+  background: #111;
+  border: 3px solid var(--glitch-cyan);
+  padding: 60px;
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.3),
+    inset 0 0 60px rgba(0, 240, 255, 0.1);
+}
+
+/* 故障标题 */
+.glitch-title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--glitch-white);
+  position: relative;
+  margin-bottom: 50px;
+  text-shadow: 
+    2px 0 var(--glitch-red),
+    -2px 0 var(--glitch-cyan);
+  animation: glitchText 2s infinite;
+}
+
+@keyframes glitchText {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+}
+
+/* 副标题 */
+.glitch-subtitle {
+  font-size: 48px;
+  color: var(--glitch-cyan);
+  font-family: 'Courier New', monospace;
+  margin-top: auto;
+}
+
+/* 内容区域 */
+.glitch-content {
+  color: var(--glitch-white);
+  font-size: 40px;
+  line-height: 1.8;
+  font-family: 'Courier New', monospace;
+}
+
+/* 故障列表 */
+.glitch-content ul li::marker {
+  color: var(--glitch-green);
+  text-shadow: 0 0 10px var(--glitch-green);
+}
+
+/* 故障引用块 */
+.glitch-content blockquote {
+  background: rgba(0, 240, 255, 0.1);
+  border-left: 4px solid var(--glitch-cyan);
+  border-right: 2px solid var(--glitch-red);
+  padding: 30px;
+  color: var(--glitch-cyan);
+  margin: 40px 0;
+  position: relative;
+}
+
+.glitch-content blockquote::before {
+  content: '>';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: var(--glitch-red);
+  font-size: 30px;
+}
+
+/* 代码块 */
+.glitch-content pre {
+  background: #000;
+  border: 2px solid var(--glitch-green);
+  border-radius: 0;
+  padding: 35px;
+  color: var(--glitch-green);
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.glitch-content code {
+  background: #000;
+  padding: 4px 12px;
+  border: 1px solid var(--glitch-green);
+  color: var(--glitch-green);
+  font-family: 'Courier New', monospace;
+}
+
+/* 故障表格 */
+.glitch-content table {
+  border: 2px solid var(--glitch-cyan);
+  margin: 40px 0;
+}
+
+.glitch-content th {
+  background: var(--glitch-cyan);
+  color: #000;
+  font-weight: 900;
+  padding: 20px 25px;
+  text-align: left;
+}
+
+.glitch-content td {
+  border: 1px solid var(--glitch-cyan);
+  padding: 20px 25px;
+  background: rgba(0, 240, 255, 0.05);
+}
+
+/* 故障分割线 */
+.glitch-content hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--glitch-red) 0%,
+    var(--glitch-cyan) 50%,
+    var(--glitch-green) 100%
+  );
+  margin: 50px 0;
+  box-shadow: 0 0 20px var(--glitch-cyan);
+}
+
+/* 页码 */
+.glitch-page-number {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 36px;
+  color: var(--glitch-green);
+  font-family: 'Courier New', monospace;
+  background: #000;
+  padding: 10px 25px;
+  border: 2px solid var(--glitch-green);
+}
+
+/* RGB 分离装饰 */
+.glitch-rgb {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 100px;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
+
+.glitch-rgb::before {
+  content: 'ERROR';
+  position: absolute;
+  color: var(--glitch-red);
+  transform: translate(-3px, 0);
+}
+
+.glitch-rgb::after {
+  content: 'ERROR';
+  position: absolute;
+  color: var(--glitch-cyan);
+  transform: translate(3px, 0);
+}

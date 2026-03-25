@@ -1,0 +1,221 @@
+/* ========== 包豪斯风格 (Bauhaus) ========== */
+/* 几何构成 + 三原色 + 功能主义 */
+
+:root {
+  --bau-red: #e63946;
+  --bau-yellow: #ffb703;
+  --bau-blue: #1d3557;
+  --bau-white: #f1faee;
+  --bau-black: #1d1d1d;
+  --bau-gray: #6c757d;
+}
+
+.bauhaus-container {
+  background: var(--bau-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 几何装饰 - 圆形 */
+.bauhaus-container::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--bau-red);
+  border-radius: 50%;
+  top: 80px;
+  left: 80px;
+}
+
+/* 几何装饰 - 方形 */
+.bauhaus-container::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: var(--bau-blue);
+  bottom: 120px;
+  right: 100px;
+  transform: rotate(45deg);
+}
+
+/* 三角形装饰 */
+.bau-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 140px solid var(--bau-yellow);
+  top: 150px;
+  right: 200px;
+}
+
+/* 内容卡片 */
+.bauhaus-inner {
+  position: absolute;
+  width: 880px;
+  height: 1300px;
+  left: 100px;
+  top: 70px;
+  background: var(--bau-white);
+  border: 8px solid var(--bau-black);
+  padding: 65px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标题 */
+.bauhaus-title {
+  font-size: 68px;
+  font-weight: 700;
+  color: var(--bau-black);
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* 彩色分隔线 */
+.bauhaus-divider {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0 50px 0;
+}
+
+.bauhaus-divider span {
+  flex: 1;
+  height: 6px;
+}
+
+.bauhaus-divider span:nth-child(1) { background: var(--bau-red); }
+.bauhaus-divider span:nth-child(2) { background: var(--bau-yellow); }
+.bauhaus-divider span:nth-child(3) { background: var(--bau-blue); }
+
+/* 副标题 */
+.bauhaus-subtitle {
+  font-size: 46px;
+  color: var(--bau-gray);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* 内容区域 */
+.bauhaus-content {
+  color: var(--bau-black);
+  font-size: 40px;
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+/* 列表 */
+.bauhaus-content ul,
+.bauhaus-content ol {
+  padding-left: 55px;
+}
+
+.bauhaus-content li {
+  margin-bottom: 22px;
+}
+
+.bauhaus-content ul > li::marker {
+  color: var(--bau-red);
+  font-weight: 700;
+}
+
+/* 引用块 */
+.bauhaus-content blockquote {
+  background: var(--bau-blue);
+  color: var(--bau-white);
+  border-left: 8px solid var(--bau-red);
+  padding: 30px 35px;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+/* 代码块 */
+.bauhaus-content pre {
+  background: var(--bau-black);
+  color: var(--bau-yellow);
+  border: 4px solid var(--bau-blue);
+  border-radius: 0;
+  padding: 35px;
+  margin: 40px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.bauhaus-content code {
+  background: var(--bau-yellow);
+  color: var(--bau-black);
+  padding: 4px 12px;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+}
+
+/* 表格 */
+.bauhaus-content table {
+  border: 6px solid var(--bau-black);
+  margin: 40px 0;
+}
+
+.bauhaus-content th {
+  background: var(--bau-red);
+  color: var(--bau-white);
+  font-weight: 700;
+  padding: 20px 25px;
+  text-align: left;
+  border: 3px solid var(--bau-black);
+}
+
+.bauhaus-content td {
+  padding: 20px 25px;
+  border: 3px solid var(--bau-black);
+  background: var(--bau-white);
+}
+
+.bauhaus-content tr:nth-child(even) td {
+  background: var(--bau-yellow);
+}
+
+/* 分割线 */
+.bauhaus-content hr {
+  border: none;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--bau-red) 0px,
+    var(--bau-red) 60px,
+    var(--bau-yellow) 60px,
+    var(--bau-yellow) 120px,
+    var(--bau-blue) 120px,
+    var(--bau-blue) 180px
+  );
+  margin: 50px 0;
+}
+
+/* 页码 */
+.bauhaus-page-number {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 36px;
+  color: var(--bau-white);
+  background: var(--bau-black);
+  padding: 12px 30px;
+  font-weight: 700;
+}
+
+/* 强调文本 */
+.bauhaus-content strong {
+  font-weight: 700;
+  color: var(--bau-black);
+  background: var(--bau-yellow);
+  padding: 2px 8px;
+}
+
+.bauhaus-content em {
+  font-style: italic;
+  color: var(--bau-blue);
+  font-weight: 600;
+}

@@ -1,0 +1,198 @@
+/* ========== 粗野主义风格 (Brutalism) ========== */
+/* 原始几何 + 极粗边框 + 高对比度 */
+
+:root {
+  --brut-black: #000000;
+  --brut-white: #ffffff;
+  --brut-gray: #808080;
+  --brut-accent: #ff4757;
+}
+
+.brutalism-container {
+  background: var(--brut-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 巨大几何块 */
+.brutalism-container::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--brut-black);
+  top: 100px;
+  right: 100px;
+}
+
+.brutalism-container::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--brut-accent);
+  bottom: 150px;
+  left: 80px;
+}
+
+/* 内容卡片 */
+.brutalism-inner {
+  position: absolute;
+  width: 900px;
+  height: 1300px;
+  left: 90px;
+  top: 70px;
+  background: var(--brut-white);
+  border: 15px solid var(--brut-black);
+  padding: 60px;
+  box-shadow: 25px 25px 0 var(--brut-black);
+}
+
+/* 标题 */
+.brutalism-title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--brut-black);
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+/* 副标题 */
+.brutalism-subtitle {
+  font-size: 48px;
+  color: var(--brut-gray);
+  font-weight: 700;
+  margin-top: auto;
+  text-transform: uppercase;
+}
+
+/* 内容区域 */
+.brutalism-content {
+  color: var(--brut-black);
+  font-size: 40px;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* 列表 */
+.brutalism-content ul,
+.brutalism-content ol {
+  padding-left: 50px;
+}
+
+.brutalism-content li {
+  margin-bottom: 20px;
+}
+
+.brutalism-content ul > li::marker {
+  color: var(--brut-black);
+  font-weight: 900;
+  content: '▪';
+}
+
+/* 引用块 */
+.brutalism-content blockquote {
+  background: var(--brut-black);
+  color: var(--brut-white);
+  border: none;
+  padding: 35px;
+  margin: 40px 0;
+  font-weight: 700;
+  box-shadow: 15px 15px 0 var(--brut-gray);
+}
+
+/* 代码块 */
+.brutalism-content pre {
+  background: var(--brut-black);
+  color: var(--brut-white);
+  border: 10px solid var(--brut-black);
+  padding: 35px;
+  margin: 40px 0;
+  font-family: 'Courier New', monospace;
+  box-shadow: 10px 10px 0 var(--brut-gray);
+}
+
+.brutalism-content code {
+  background: var(--brut-gray);
+  color: var(--brut-black);
+  padding: 6px 14px;
+  font-family: 'Courier New', monospace;
+  border: 3px solid var(--brut-black);
+}
+
+/* 表格 */
+.brutalism-content table {
+  border: 12px solid var(--brut-black);
+  margin: 40px 0;
+}
+
+.brutalism-content th {
+  background: var(--brut-black);
+  color: var(--brut-white);
+  font-weight: 900;
+  padding: 20px 25px;
+  text-align: left;
+  border: 5px solid var(--brut-white);
+  text-transform: uppercase;
+}
+
+.brutalism-content td {
+  padding: 20px 25px;
+  border: 5px solid var(--brut-black);
+  background: var(--brut-white);
+  font-weight: 600;
+}
+
+.brutalism-content tr:nth-child(even) td {
+  background: var(--brut-gray);
+}
+
+/* 分割线 */
+.brutalism-content hr {
+  border: none;
+  height: 10px;
+  background: var(--brut-black);
+  margin: 50px 0;
+  box-shadow: 8px 8px 0 var(--brut-gray);
+}
+
+/* 页码 */
+.brutalism-page-number {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 36px;
+  color: var(--brut-white);
+  background: var(--brut-black);
+  padding: 15px 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* 强调文本 */
+.brutalism-content strong {
+  font-weight: 900;
+  background: var(--brut-black);
+  color: var(--brut-white);
+  padding: 3px 8px;
+}
+
+.brutalism-content em {
+  font-style: italic;
+  color: var(--brut-accent);
+  font-weight: 700;
+}
+
+/* 装饰粗线 */
+.brutalism-line {
+  position: absolute;
+  height: 15px;
+  background: var(--brut-black);
+  left: 60px;
+  right: 60px;
+}
+
+.brutalism-line.top { top: 40px; }
+.brutalism-line.bottom { bottom: 40px; }

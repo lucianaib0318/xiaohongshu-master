@@ -1,0 +1,231 @@
+/* ========== 新艺术运动风格 (Art Nouveau) ========== */
+/* 曲线装饰 + 植物藤蔓 + 金色边框 */
+
+:root {
+  --an-gold: #c9a962;
+  --an-cream: #f9f5f0;
+  --an-green: #3a5a40;
+  --an-brown: #5c4033;
+  --an-peach: #dda15e;
+  --an-dark: #2b2b2b;
+}
+
+.art-nouveau-container {
+  background: var(--an-cream);
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(205, 169, 98, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(58, 90, 64, 0.1) 0%, transparent 50%);
+}
+
+/* 藤蔓边框装饰 */
+.art-nouveau-container::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: 3px solid var(--an-gold);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* 角落装饰 */
+.art-nouveau-container::after {
+  content: '🌿';
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  font-size: 80px;
+  opacity: 0.3;
+  filter: sepia(1) hue-rotate(30deg);
+}
+
+/* 内容卡片 */
+.art-nouveau-inner {
+  position: absolute;
+  width: 880px;
+  height: 1300px;
+  left: 100px;
+  top: 80px;
+  background: #fff;
+  border: 8px solid var(--an-gold);
+  border-radius: 25px;
+  padding: 65px 75px;
+  box-shadow: 
+    0 10px 40px rgba(43, 43, 43, 0.15),
+    inset 0 0 0 3px rgba(201, 169, 98, 0.2);
+}
+
+/* 装饰性标题框 */
+.art-nouveau-title-frame {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* 标题 */
+.art-nouveau-title {
+  font-size: 68px;
+  font-weight: 400;
+  color: var(--an-dark);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: 3px;
+}
+
+/* 标题上下装饰线 */
+.art-nouveau-title-frame::before,
+.art-nouveau-title-frame::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--an-gold), transparent);
+  margin: 20px 0;
+}
+
+/* 副标题 */
+.art-nouveau-subtitle {
+  font-size: 46px;
+  color: var(--an-brown);
+  font-style: italic;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* 内容区域 */
+.art-nouveau-content {
+  color: var(--an-dark);
+  font-size: 40px;
+  line-height: 2.0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* 列表 */
+.art-nouveau-content ul,
+.art-nouveau-content ol {
+  padding-left: 55px;
+}
+
+.art-nouveau-content li {
+  margin-bottom: 25px;
+}
+
+.art-nouveau-content ul > li::marker {
+  color: var(--an-gold);
+  font-weight: 600;
+}
+
+/* 引用块 */
+.art-nouveau-content blockquote {
+  background: linear-gradient(135deg, rgba(201, 169, 98, 0.15) 0%, rgba(58, 90, 64, 0.1) 100%);
+  border-left: 5px solid var(--an-gold);
+  border-right: 2px solid var(--an-green);
+  padding: 35px 40px;
+  margin: 45px 0;
+  color: var(--an-brown);
+  font-style: italic;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  border-radius: 0 15px 15px 0;
+}
+
+/* 代码块 */
+.art-nouveau-content pre {
+  background: var(--an-dark);
+  border: 2px solid var(--an-gold);
+  border-radius: 12px;
+  padding: 35px;
+  color: var(--an-gold);
+  margin: 40px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.art-nouveau-content code {
+  background: rgba(201, 169, 98, 0.2);
+  padding: 5px 13px;
+  border-radius: 6px;
+  color: var(--an-green);
+  border: 1px solid var(--an-gold);
+  font-family: 'Courier New', monospace;
+}
+
+/* 表格 */
+.art-nouveau-content table {
+  border: 3px solid var(--an-gold);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.art-nouveau-content th {
+  background: var(--an-green);
+  color: #fff;
+  font-weight: 600;
+  padding: 20px 25px;
+  text-align: left;
+  border: 1px solid var(--an-gold);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.art-nouveau-content td {
+  padding: 20px 25px;
+  border: 1px solid rgba(201, 169, 98, 0.4);
+  background: rgba(249, 245, 240, 0.5);
+}
+
+.art-nouveau-content tr:nth-child(even) td {
+  background: rgba(201, 169, 98, 0.1);
+}
+
+/* 分割线 */
+.art-nouveau-content hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--an-gold),
+    var(--an-peach),
+    var(--an-gold),
+    transparent
+  );
+  margin: 50px 0;
+  border-radius: 2px;
+}
+
+/* 页码 */
+.art-nouveau-page-number {
+  position: absolute;
+  bottom: 55px;
+  right: 55px;
+  font-size: 36px;
+  color: var(--an-gold);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+}
+
+/* 强调文本 */
+.art-nouveau-content strong {
+  font-weight: 700;
+  color: var(--an-brown);
+}
+
+.art-nouveau-content em {
+  font-style: italic;
+  color: var(--an-green);
+}
+
+/* 角落花卉装饰 */
+.art-nouveau-flower {
+  position: absolute;
+  font-size: 60px;
+  opacity: 0.4;
+  filter: sepia(0.8) hue-rotate(30deg);
+}
+
+.art-nouveau-flower.tl { top: 60px; left: 60px; }
+.art-nouveau-flower.tr { top: 60px; right: 60px; transform: scaleX(-1); }
+.art-nouveau-flower.bl { bottom: 60px; left: 60px; transform: scaleY(-1); }
+.art-nouveau-flower.br { bottom: 60px; right: 60px; transform: scale(-1); }

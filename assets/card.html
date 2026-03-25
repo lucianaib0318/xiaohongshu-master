@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080">
+    <title>小红书卡片</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+        
+        @font-face {
+            font-family: 'Noto Color Emoji';
+            src: local('Noto Color Emoji'),
+                 url('https://fonts.gstatic.com/s/notocoloremoji/v28/Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabsE4tq3luCC7p-aXxcn.woff2') format('woff2');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            width: 1080px;
+            min-height: 1440px;
+            overflow: hidden;
+        }
+        
+        .emoji {
+            font-family: 'Noto Color Emoji', sans-serif;
+            display: inline-block;
+        }
+        
+        /* ========== 孟菲斯风格 ========== */
+        .memphis-container {
+            width: 1080px;
+            min-height: 1440px;
+            background: linear-gradient(180deg, #FFF9C4 0%, #FFE082 100%);
+            position: relative;
+            padding: 40px;
+        }
+        
+        .memphis-inner {
+            background: #FFFFFF;
+            border-radius: 25px;
+            padding: 55px;
+            min-height: calc(1440px - 80px);
+            border: 10px solid #000;
+            box-shadow: 16px 16px 0 #000;
+        }
+        
+        .memphis-content {
+            color: #2D3436;
+            font-size: 40px;
+            line-height: 1.9;
+        }
+        
+        .memphis-content h1 {
+            font-size: 68px;
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 45px;
+            padding-bottom: 25px;
+            border-bottom: 8px solid #FFD93D;
+        }
+        
+        .memphis-content h2 {
+            font-size: 52px;
+            font-weight: 700;
+            margin: 55px 0 28px 0;
+        }
+        
+        .memphis-content p {
+            margin-bottom: 35px;
+        }
+        
+        .memphis-content ul,
+        .memphis-content ol {
+            margin: 35px 0;
+            padding-left: 60px;
+        }
+        
+        .memphis-content li {
+            margin-bottom: 22px;
+        }
+        
+        .memphis-content ul > li::marker {
+            color: #FF6B6B;
+            font-weight: 900;
+        }
+        
+        .memphis-content blockquote {
+            border-left: 12px solid #000;
+            padding: 30px 35px;
+            margin: 40px 0;
+            background: linear-gradient(90deg, #FFF9C4 0%, #FFE082 100%);
+            border: 6px solid #000;
+        }
+        
+        .memphis-content pre {
+            background: #2D3436;
+            color: #FFE082;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 8px solid #000;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .memphis-content code {
+            background: #F0F0F0;
+            padding: 6px 18px;
+            border-radius: 10px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+            font-size: 36px;
+            border: 4px solid #000;
+        }
+        
+        .memphis-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-size: 36px;
+            border: 8px solid #000;
+        }
+        
+        .memphis-content th {
+            background: linear-gradient(90deg, #FF6B6B 0%, #FFD93D 100%);
+            color: #000;
+            font-weight: 900;
+            padding: 22px 28px;
+            text-align: left;
+            border: 4px solid #000;
+        }
+        
+        .memphis-content td {
+            padding: 22px 28px;
+            border: 4px solid #000;
+        }
+        
+        .memphis-page-number {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            font-size: 38px;
+            color: #000;
+            font-weight: 900;
+            background: #FFD93D;
+            padding: 15px 35px;
+            border-radius: 30px;
+            border: 6px solid #000;
+            box-shadow: 6px 6px 0 #000;
+        }
+        
+        /* ========== 酸性风格 ========== */
+        .acid-container {
+            width: 1080px;
+            min-height: 1440px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0524 50%, #051a1a 100%);
+            position: relative;
+            padding: 40px;
+        }
+        
+        .acid-inner {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(40, 10, 40, 0.9) 100%);
+            border: 2px solid rgba(192, 192, 192, 0.3);
+            border-radius: 30px;
+            padding: 60px;
+            min-height: calc(1440px - 80px);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.2), inset 0 0 60px rgba(0, 255, 255, 0.1);
+        }
+        
+        .acid-content {
+            color: #e5e5e5;
+            font-size: 40px;
+            line-height: 1.9;
+        }
+        
+        .acid-content h1 {
+            font-size: 68px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 45px;
+        }
+        
+        .acid-content h2 {
+            font-size: 52px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 55px 0 28px 0;
+        }
+        
+        .acid-content p {
+            margin-bottom: 35px;
+        }
+        
+        .acid-content ul,
+        .acid-content ol {
+            margin: 35px 0;
+            padding-left: 60px;
+        }
+        
+        .acid-content li {
+            margin-bottom: 22px;
+        }
+        
+        .acid-content ul > li::marker {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        
+        .acid-content blockquote {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.1) 0%, rgba(0, 255, 255, 0.1) 100%);
+            border-left: 4px solid #ff00ff;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+        }
+        
+        .acid-content pre {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%);
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            border-radius: 16px;
+            padding: 35px;
+            color: #c0c0c0;
+            margin: 40px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .acid-content code {
+            background: rgba(192, 192, 192, 0.1);
+            padding: 6px 14px;
+            border-radius: 10px;
+            color: #c0c0c0;
+            border: 1px solid rgba(192, 192, 192, 0.3);
+        }
+        
+        .acid-content table th {
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            color: #000;
+            font-weight: 900;
+            padding: 22px 28px;
+            text-align: left;
+        }
+        
+        .acid-content table td {
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            background: rgba(20, 20, 20, 0.5);
+            padding: 22px 28px;
+        }
+        
+        .acid-page-number {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        
+        /* ========== 蒸汽波 ========== */
+        .vaporwave-container {
+            width: 1080px;
+            min-height: 1440px;
+            background: linear-gradient(180deg, #2c003e 0%, #512b58 50%, #ff71ce 100%);
+            position: relative;
+            padding: 40px;
+        }
+        
+        .vaporwave-inner {
+            background: linear-gradient(135deg, rgba(166, 133, 226, 0.8) 0%, rgba(255, 113, 206, 0.8) 100%);
+            border: 3px solid #ff71ce;
+            border-radius: 25px;
+            padding: 60px;
+            min-height: calc(1440px - 80px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 60px rgba(255, 113, 206, 0.5);
+        }
+        
+        .vaporwave-content {
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.9;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .vaporwave-content h1 {
+            font-size: 68px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 45px;
+            text-shadow: 0 0 10px #ff71ce, 0 0 20px #ff71ce;
+        }
+        
+        .vaporwave-content h2 {
+            font-size: 52px;
+            background: linear-gradient(90deg, #05d9e8, #ff71ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 55px 0 28px 0;
+        }
+        
+        .vaporwave-content p {
+            margin-bottom: 35px;
+        }
+        
+        .vaporwave-content ul,
+        .vaporwave-content ol {
+            margin: 35px 0;
+            padding-left: 60px;
+        }
+        
+        .vaporwave-content li {
+            margin-bottom: 22px;
+        }
+        
+        .vaporwave-content ul > li::marker {
+            color: #05d9e8;
+            text-shadow: 0 0 10px #05d9e8;
+        }
+        
+        .vaporwave-content blockquote {
+            background: linear-gradient(135deg, rgba(255, 113, 206, 0.3) 0%, rgba(166, 133, 226, 0.3) 100%);
+            border-left: 5px solid #05d9e8;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 0 30px rgba(5, 217, 232, 0.3);
+        }
+        
+        .vaporwave-content pre {
+            background: linear-gradient(135deg, #2c003e 0%, #512b58 100%);
+            border: 2px solid #ff71ce;
+            border-radius: 16px;
+            padding: 35px;
+            color: #05d9e8;
+            margin: 40px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .vaporwave-content code {
+            background: rgba(255, 113, 206, 0.2);
+            padding: 6px 14px;
+            border-radius: 10px;
+            color: #05d9e8;
+            border: 1px solid #ff71ce;
+        }
+        
+        .vaporwave-content table th {
+            background: linear-gradient(90deg, #ff71ce, #a685e2);
+            color: #fff;
+            text-shadow: 0 0 10px #ff71ce;
+            padding: 22px 28px;
+            text-align: left;
+        }
+        
+        .vaporwave-content table td {
+            border: 1px solid #a685e2;
+            background: rgba(166, 133, 226, 0.2);
+            padding: 22px 28px;
+        }
+        
+        .vaporwave-page-number {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            background: linear-gradient(90deg, #ff71ce, #a685e2);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            box-shadow: 0 0 20px #ff71ce;
+        }
+        
+        /* ========== 其他风格通用简化版 ========== */
+        .minimalist-container,
+        .glitch-container,
+        .chinese-container,
+        .glassmorphism-container,
+        .bauhaus-container,
+        .pop-art-container,
+        .art-nouveau-container,
+        .collage-container,
+        .new-ugly-container,
+        .brutalism-container {
+            width: 1080px;
+            min-height: 1440px;
+            position: relative;
+            padding: 40px;
+        }
+        
+        .minimalist-inner,
+        .glitch-inner,
+        .chinese-inner,
+        .glassmorphism-inner,
+        .bauhaus-inner,
+        .pop-art-inner,
+        .art-nouveau-inner,
+        .collage-inner,
+        .new-ugly-inner,
+        .brutalism-inner {
+            background: #fff;
+            border-radius: 20px;
+            padding: 60px;
+            min-height: calc(1440px - 80px);
+            border: 5px solid #000;
+        }
+        
+        .minimalist-content,
+        .glitch-content,
+        .chinese-content,
+        .glassmorphism-content,
+        .bauhaus-content,
+        .pop-art-content,
+        .art-nouveau-content,
+        .collage-content,
+        .new-ugly-content,
+        .brutalism-content {
+            color: #333;
+            font-size: 40px;
+            line-height: 1.9;
+        }
+        
+        .minimalist-content h1,
+        .glitch-content h1,
+        .chinese-content h1,
+        .glassmorphism-content h1,
+        .bauhaus-content h1,
+        .pop-art-content h1,
+        .art-nouveau-content h1,
+        .collage-content h1,
+        .new-ugly-content h1,
+        .brutalism-content h1 {
+            font-size: 68px;
+            font-weight: 700;
+            margin-bottom: 45px;
+            color: #000;
+        }
+        
+        .minimalist-content h2,
+        .glitch-content h2,
+        .chinese-content h2,
+        .glassmorphism-content h2,
+        .bauhaus-content h2,
+        .pop-art-content h2,
+        .art-nouveau-content h2,
+        .collage-content h2,
+        .new-ugly-content h2,
+        .brutalism-content h2 {
+            font-size: 52px;
+            font-weight: 600;
+            margin: 55px 0 28px 0;
+        }
+        
+        .minimalist-content p,
+        .glitch-content p,
+        .chinese-content p,
+        .glassmorphism-content p,
+        .bauhaus-content p,
+        .pop-art-content p,
+        .art-nouveau-content p,
+        .collage-content p,
+        .new-ugly-content p,
+        .brutalism-content p {
+            margin-bottom: 35px;
+        }
+        
+        .minimalist-content ul,
+        .glitch-content ul,
+        .chinese-content ul,
+        .glassmorphism-content ul,
+        .bauhaus-content ul,
+        .pop-art-content ul,
+        .art-nouveau-content ul,
+        .collage-content ul,
+        .new-ugly-content ul,
+        .brutalism-content ul,
+        .minimalist-content ol,
+        .glitch-content ol,
+        .chinese-content ol,
+        .glassmorphism-content ol,
+        .bauhaus-content ol,
+        .pop-art-content ol,
+        .art-nouveau-content ol,
+        .collage-content ol,
+        .new-ugly-content ol,
+        .brutalism-content ol {
+            margin: 35px 0;
+            padding-left: 60px;
+        }
+        
+        .minimalist-content li,
+        .glitch-content li,
+        .chinese-content li,
+        .glassmorphism-content li,
+        .bauhaus-content li,
+        .pop-art-content li,
+        .art-nouveau-content li,
+        .collage-content li,
+        .new-ugly-content li,
+        .brutalism-content li {
+            margin-bottom: 22px;
+        }
+        
+        .minimalist-content blockquote,
+        .glitch-content blockquote,
+        .chinese-content blockquote,
+        .glassmorphism-content blockquote,
+        .bauhaus-content blockquote,
+        .pop-art-content blockquote,
+        .art-nouveau-content blockquote,
+        .collage-content blockquote,
+        .new-ugly-content blockquote,
+        .brutalism-content blockquote {
+            background: #f5f5f5;
+            border-left: 5px solid #000;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .minimalist-content pre,
+        .glitch-content pre,
+        .chinese-content pre,
+        .glassmorphism-content pre,
+        .bauhaus-content pre,
+        .pop-art-content pre,
+        .art-nouveau-content pre,
+        .collage-content pre,
+        .new-ugly-content pre,
+        .brutalism-content pre {
+            background: #f0f0f0;
+            padding: 35px;
+            border-radius: 10px;
+            margin: 40px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .minimalist-content table,
+        .glitch-content table,
+        .chinese-content table,
+        .glassmorphism-content table,
+        .bauhaus-content table,
+        .pop-art-content table,
+        .art-nouveau-content table,
+        .collage-content table,
+        .new-ugly-content table,
+        .brutalism-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-size: 36px;
+        }
+        
+        .minimalist-content th,
+        .glitch-content th,
+        .chinese-content th,
+        .glassmorphism-content th,
+        .bauhaus-content th,
+        .pop-art-content th,
+        .art-nouveau-content th,
+        .collage-content th,
+        .new-ugly-content th,
+        .brutalism-content th {
+            background: #333;
+            color: #fff;
+            font-weight: 700;
+            padding: 22px 28px;
+            text-align: left;
+        }
+        
+        .minimalist-content td,
+        .glitch-content td,
+        .chinese-content td,
+        .glassmorphism-content td,
+        .bauhaus-content td,
+        .pop-art-content td,
+        .art-nouveau-content td,
+        .collage-content td,
+        .new-ugly-content td,
+        .brutalism-content td {
+            padding: 22px 28px;
+            border: 1px solid #ddd;
+        }
+        
+        .minimalist-page-number,
+        .glitch-page-number,
+        .chinese-page-number,
+        .glassmorphism-page-number,
+        .bauhaus-page-number,
+        .pop-art-page-number,
+        .art-nouveau-page-number,
+        .collage-page-number,
+        .new-ugly-page-number,
+        .brutalism-page-number {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            font-size: 36px;
+            color: #666;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="{{THEME}}-container">
+        <div class="{{THEME}}-inner">
+            <div class="{{THEME}}-content">
+                {{CONTENT}}
+            </div>
+        </div>
+        <div class="{{THEME}}-page-number">{{PAGE_NUMBER}}</div>
+    </div>
+</body>
+</html>

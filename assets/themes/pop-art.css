@@ -1,0 +1,215 @@
+/* ========== 波普艺术风格 (Pop Art) ========== */
+/* 安迪·沃霍尔风格 + 网点图案 + 鲜艳对比色 */
+
+:root {
+  --pop-red: #ff006e;
+  --pop-yellow: #ffbe0b;
+  --pop-blue: #3a86ff;
+  --pop-purple: #8338ec;
+  --pop-pink: #fb5607;
+  --pop-cream: #fffbf0;
+}
+
+.pop-art-container {
+  background: var(--pop-cream);
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    radial-gradient(var(--pop-red) 2px, transparent 2px),
+    radial-gradient(var(--pop-blue) 2px, transparent 2px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 1;
+}
+
+.pop-art-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 251, 240, 0.9);
+}
+
+/* 内容卡片 */
+.pop-art-inner {
+  position: absolute;
+  width: 900px;
+  height: 1300px;
+  left: 90px;
+  top: 70px;
+  background: #fff;
+  border: 12px solid var(--pop-black, #000);
+  padding: 60px;
+  box-shadow: 
+    15px 15px 0 var(--pop-black, #000),
+    inset 0 0 0 6px var(--pop-yellow);
+}
+
+/* 标题 */
+.pop-art-title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--pop-red);
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 
+    4px 4px 0 var(--pop-black, #000),
+    8px 8px 0 var(--pop-blue);
+}
+
+/* 副标题 */
+.pop-art-subtitle {
+  font-size: 48px;
+  color: var(--pop-purple);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: auto;
+  text-shadow: 3px 3px 0 var(--pop-black, #000);
+}
+
+/* 内容区域 */
+.pop-art-content {
+  color: var(--pop-black, #000);
+  font-size: 40px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+/* 列表 */
+.pop-art-content ul,
+.pop-art-content ol {
+  padding-left: 55px;
+}
+
+.pop-art-content li {
+  margin-bottom: 22px;
+}
+
+.pop-art-content ul > li::marker {
+  color: var(--pop-pink);
+  font-weight: 900;
+}
+
+/* 引用块 */
+.pop-art-content blockquote {
+  background: var(--pop-yellow);
+  border: 6px solid var(--pop-black, #000);
+  padding: 30px 35px;
+  margin: 40px 0;
+  color: var(--pop-black, #000);
+  font-style: italic;
+  font-weight: 700;
+  box-shadow: 8px 8px 0 var(--pop-black, #000);
+}
+
+/* 代码块 */
+.pop-art-content pre {
+  background: var(--pop-blue);
+  color: #fff;
+  border: 6px solid var(--pop-black, #000);
+  border-radius: 0;
+  padding: 35px;
+  margin: 40px 0;
+  font-family: 'Courier New', monospace;
+  box-shadow: 8px 8px 0 var(--pop-black, #000);
+}
+
+.pop-art-content code {
+  background: var(--pop-red);
+  color: #fff;
+  padding: 6px 14px;
+  border: 3px solid var(--pop-black, #000);
+  font-family: 'Courier New', monospace;
+}
+
+/* 表格 */
+.pop-art-content table {
+  border: 8px solid var(--pop-black, #000);
+  margin: 40px 0;
+  box-shadow: 8px 8px 0 var(--pop-black, #000);
+}
+
+.pop-art-content th {
+  background: var(--pop-red);
+  color: #fff;
+  font-weight: 900;
+  padding: 20px 25px;
+  text-align: left;
+  border: 4px solid var(--pop-black, #000);
+  text-transform: uppercase;
+}
+
+.pop-art-content td {
+  padding: 20px 25px;
+  border: 4px solid var(--pop-black, #000);
+  background: #fff;
+  font-weight: 600;
+}
+
+.pop-art-content tr:nth-child(even) td {
+  background: var(--pop-yellow);
+}
+
+/* 分割线 */
+.pop-art-content hr {
+  border: none;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--pop-red) 0px,
+    var(--pop-red) 40px,
+    var(--pop-black, #000) 40px,
+    var(--pop-black, #000) 45px,
+    var(--pop-yellow) 45px,
+    var(--pop-yellow) 85px
+  );
+  margin: 50px 0;
+  border: 3px solid var(--pop-black, #000);
+}
+
+/* 页码 */
+.pop-art-page-number {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  font-size: 36px;
+  color: #fff;
+  background: var(--pop-purple);
+  padding: 12px 30px;
+  font-weight: 900;
+  border: 5px solid var(--pop-black, #000);
+  text-transform: uppercase;
+  box-shadow: 6px 6px 0 var(--pop-black, #000);
+}
+
+/* 强调文本 */
+.pop-art-content strong {
+  font-weight: 900;
+  color: var(--pop-red);
+  text-shadow: 2px 2px 0 var(--pop-black, #000);
+}
+
+.pop-art-content em {
+  font-style: italic;
+  color: var(--pop-blue);
+  font-weight: 700;
+}
+
+/* 波普装饰 - 对话气泡 */
+.pop-art-bubble {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: var(--pop-yellow);
+  border: 5px solid var(--pop-black, #000);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--pop-black, #000);
+  box-shadow: 8px 8px 0 var(--pop-black, #000);
+}

@@ -43,3 +43,14 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Output
+output/
+*.png
+
+# Playwright
+.playwright/
+
+# Credentials
+.env
+*.cookie
